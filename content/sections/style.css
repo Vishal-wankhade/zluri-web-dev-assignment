@@ -1,0 +1,97 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid layout */
+    gap: 20px;
+    padding: 10px;
+    background-color: lightgray;
+    font-family: Lexend Regular;
+    grid-auto-rows: 500px; /* Set the container height to 500px */
+  }
+  
+  .grid-item {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    text-align: center;
+    height: 100%; /* Set the item height to 100% of the container (500px) */
+  }
+  .grid-item h1{
+    font-size: 65px;
+    
+  }
+  .grid-item p{
+    font-size: 45px;
+    line-height: 1;
+  }
+  .btn{
+    opacity: 0.5;
+  }
+  .cv{
+    opacity: 1;
+  }
+  .cv-wrap{
+  width: 200px;
+  margin-top: 20px;
+  }
+  .joke-wrap{
+    font-family: Lexend Regular;
+    color: red;
+    font-size: 25px;
+  }
+  .joke-wrap{
+    margin:60px auto 20px auto;
+    height: max-content;
+    border:1px solid red;
+    background-color: white;
+    font-family: Lexend Regular;
+
+    box-shadow: blue 0px 0px 0px 2px inset, rgb(255, 255, 255) 10px -10px 0px -3px, rgb(31, 193, 27) 10px -10px, rgb(255, 255, 255) 20px -20px 0px -3px, rgb(255, 217, 19) 20px -20px, rgb(255, 255, 255) 30px -30px 0px -3px, rgb(255, 156, 85) 30px -30px, rgb(255, 255, 255) 40px -40px 0px -3px, rgb(255, 85, 85) 40px -40px;
+  }
+  .joke{
+    font-size: 25px;
+    text-align: center;
+    padding: 20px;
+    color: red;
+  }
+  .joke-btn{
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin: auto;
+    display: block;
+  }
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* One column on mobile devices */
+    }
+    .grid-item h1{
+        font-size: 25px;
+        
+      }
+      .grid-item p{
+        font-size: 15px;
+        line-height: 1;
+      }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr)); /* Two columns on smaller devices */
+    }
+    .cv-wrap{
+       display:flex;
+       flex-direction: column;
+       width: 500px;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .grid-container {
+      grid-template-columns: repeat(auto-fit, minmax(33.33%, 1fr)); /* Three columns on larger screens */
+    }
+  }
+  

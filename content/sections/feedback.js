@@ -1,7 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { Container, Wrapper } from "./style";
-
+import Joke from './Joke'
 const Feedback = () => {
     return (
         <StyledWrapper>
@@ -11,12 +11,14 @@ const Feedback = () => {
                     Thanks for taking up this assignment.
                 </h4>
                 <p>Anything you would like to add over here?</p>
+                <h1></h1>
             </Title>
 
             <FeedbackDiv>
-                <p>
-                    Add your reply here
+                <p className="joke-para">
+                    I am making a little effort to make you laugh with this Joke generator, click on next joke to get a new one
                 </p>
+                <Joke/>
             </FeedbackDiv>
             
         </Container>

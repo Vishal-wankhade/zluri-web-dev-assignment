@@ -18,6 +18,7 @@ const Q3 = () => {
                         <a href="https://www.figma.com/proto/kPxYk2EWTMsBmx4lAc92ni/Web-Dev-Assignment?type=design&node-id=36-670&t=56Qr3ehXorgFodbH-1&scaling=min-zoom&page-id=36%3A647&starting-point-node-id=36%3A670" target="_blank" ><PrototypeButton>Prototype</PrototypeButton></a>
                     </AnswerDiv>
                 </QuestionsGrid>
+               
             </StyledContainer>
         </StyledWrapper>
     )
@@ -26,7 +27,10 @@ const Q3 = () => {
 export default Q3
 
 const StyledWrapper=styled(Wrapper)`
+
 `
+
+
 const Title = styled.div`
 h3{
     font-size: 32px;

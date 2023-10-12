@@ -1,6 +1,7 @@
 import React from "react";
 import styled from 'styled-components';
 import { Container, Wrapper } from "./style";
+import GridComponent from './GridComponent'
 
 const S1 = () => {
     return (
@@ -11,7 +12,9 @@ const S1 = () => {
                         Solution Here
                     </h4>
                     <p>Answer below this.</p>
+                    
                 </Title>
+                <GridComponent/>
             </Container>
         </StyledWrapper>
     )

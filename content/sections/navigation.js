@@ -3,14 +3,20 @@ import { Link } from "gatsby"
 import { Menu, X } from "react-feather"
 import styled from "styled-components"
 import { Container } from "./style"
+import Modal from 'react-modal';
+import './style'
+import resume from '../images/Vishal_SDE_CV_.pdf'
+
 
 
 
 export default class Navigation extends Component {
-    state = {
-        mobileMenuOpen: false,
-        hasScrolled: false,
-    }
+  state = {
+    mobileMenuOpen: false,
+    hasScrolled: false,
+    isResumeModalOpen: false,
+  
+  }
 
     componentDidMount() {
         window.addEventListener("scroll", this.handleScroll, { passive: true })
@@ -37,16 +43,28 @@ export default class Navigation extends Component {
             this.setState({ mobileMenuOpen: false })
         }
     }
+    openResumeModal = () => {
+      this.setState({ isResumeModalOpen: true });
+    }
+    
+    closeResumeModal = () => {
+      this.setState({ isResumeModalOpen: false });
+    }
+
+    
+   
+    
 
     render() {
-        const { mobileMenuOpen } = this.state
+      const { mobileMenuOpen, isResumeModalOpen } = this.state;
 
         return (
+          <>
             <Nav {...this.props} scrolled={this.state.hasScrolled}>
                 <StyledContainer>
                     <Brand>
                         <Link to="/" onClick={this.closeMobileMenu}>
-                            <h2>ZLURI</h2>
+                            <h2>The Vishal Wankhade</h2>
                         </Link>
                     </Brand>
                     <Mobile>
@@ -66,15 +84,29 @@ export default class Navigation extends Component {
                         <NavListWrapper>
                             <ul>
                                 <NavItem>
-                                    <a href="">Email</a>
+                                    <a href="mailto:vwankhade120@gmail.com">Email</a>
                                 </NavItem>
                                 <NavItem>
-                                    <a href="">Contact me</a>
+                                <a href="tel:+917666736326">Contact Me</a>
+      
                                 </NavItem>
                                 <ActionsContainer>
-                                    <a href="https://get.zluri.com/request-demo">
-                                        <button>Resume</button>
-                                    </a>
+                                    
+                                    <button onClick={this.openResumeModal} className={isResumeModalOpen ? 'btn' : "cv"}>Resume</button>
+                                    {
+  isResumeModalOpen && (
+    <div className="cv-wrap">
+      <a href={resume} download>
+    <button style={{ backgroundColor: '#0078d4', color: 'white', padding: '10px 20px', border: 'none' }}>
+      Download Resume
+    </button>
+  </a>
+  <button onClick={this.closeResumeModal} style={{ marginTop: '20px', cursor: 'pointer', color: 'gray' }}>close</button>
+    </div>
+  )
+}
+
+
                                 </ActionsContainer>
                             </ul>
                         </NavListWrapper>
@@ -86,25 +118,44 @@ export default class Navigation extends Component {
                             <NavListWrapperMobile mobile={true}>
                                 <ul>
                                     <NavItemMobile>
-                                        <a href="">Email</a>
+                                    <a href="mailto:vwankhade120@gmail.com">Email</a>
                                     </NavItemMobile>
                                     <NavItemMobile>
-                                        <a href="">Contact me</a>
+                                    <a href="tel:+917666736326"className="btn">Contact Me</a>
                                     </NavItemMobile>
                                     <ActionsContainer>
-                                        <a href="https://get.zluri.com/request-demo">
-                                            <button>Resume</button>
-                                        </a>
+                                    <button onClick={this.openResumeModal} className="btn">Resume</button>
+                                    {
+                                     isResumeModalOpen && (
+                                      <div className="cv-wrap">
+                                        <a href={resume} download>
+    <button style={{ backgroundColor: '#0078d4', color: 'white', padding: '10px 20px', border: 'none' }}>
+      Download Resume
+    </button>
+  </a>
+  <button onClick={this.closeResumeModal} style={{ marginTop: '20px', cursor: 'pointer', color: 'gray' }}>close</button>
+    </div>
+  )
+}
+                                      
                                     </ActionsContainer>
                                 </ul>
-                            </NavListWrapperMobile>
+                                 
+                             
+                            </NavListWrapperMobile>  
+                            
                         </MobileMenu>
+                        
                     )}
                 </Mobile>
             </Nav>
+         
+            </>
         )
     }
 }
+
+
 const StyledContainer = styled(Container)`
 display:flex;
 flex-direction:row;
